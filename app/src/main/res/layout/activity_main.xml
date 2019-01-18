@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!--<LinearLayout
+            android:layout_width="93dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/IdLocation"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="30dp"
+                android:text="Location"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/plant"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginTop="50dp"
+                android:text="Plant"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/distribution"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Ditribution Code"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Density Code"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout> -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rvlocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Location"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18dp" />
+
+            <Spinner
+                android:id="@+id/spLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:entries="@array/location"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
+
+            <TextView
+                android:id="@+id/tvGPS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="GPS"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="3"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Longitude"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@android:color/black"
+                    android:textColorLink="@android:color/background_dark" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="3"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Latitude"
+                    android:inputType="textPersonName"
+                    android:textColor="@android:color/background_dark"
+                    android:textColorHint="@android:color/background_dark" />
+
+                <ImageView
+                    android:id="@+id/location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:clickable="true"
+                    app:srcCompat="@drawable/location_searching" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvplants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Species"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18dp" />
+
+            <Spinner
+                android:id="@+id/Plant_Sp"
+                style="?attr/spinnerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Distribution"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Distribution Code"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/DistributionCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="Click the Code"
+                    android:textColor="@android:color/background_dark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp">
+
+
+                <Button
+                    android:id="@+id/one"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="1"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/two"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="2"
+                    app:layout_column="1"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/three"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="3"
+                    app:layout_column="2"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/four"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="4"
+                    app:layout_column="3"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/five"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/holo_green_light"
+                    android:text="5"
+                    app:layout_column="4"
+                    app:layout_columnWeight="1"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/six"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="6"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_row="1"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/seven"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="7"
+                    app:layout_column="1"
+                    app:layout_columnWeight="1"
+                    app:layout_row="1"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/eight"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="8"
+                    app:layout_column="2"
+                    app:layout_columnWeight="1"
+                    app:layout_row="1"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/nine"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="9"
+                    app:layout_column="3"
+                    app:layout_columnWeight="1"
+                    app:layout_row="1"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/ten"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="10"
+                    app:layout_column="4"
+                    app:layout_columnWeight="1"
+                    app:layout_row="1"
+                    app:layout_rowWeight="1" />
+
+
+            </android.support.v7.widget.GridLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/Density"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Density Code"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/DenistyCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="Click the Code"
+                    android:textColor="@android:color/background_dark"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/den1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="Low"
+                    android:textSize="12sp"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/den2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="Medium"
+                    android:textSize="12sp"
+                    app:layout_column="1"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/den3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="High"
+                    android:textSize="12sp"
+                    app:layout_column="2"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1" />
+
+                <Button
+                    android:id="@+id/den4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="@android:color/holo_green_light"
+                    android:text="Dense"
+                    android:textSize="12sp"
+                    app:layout_column="3"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill"
+                    app:layout_row="0"
+                    app:layout_rowWeight="1" />
+
+            </android.support.v7.widget.GridLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/ivphoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/holo_green_light"
+                    app:elevation="10dp"
+                    app:fabSize="normal"
+                    app:srcCompat="@drawable/ic_photo_camera_black_24dp" />
+
+                <EditText
+                    android:id="@+id/remark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="3"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="Enter Remark"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="80dp"
+                android:onClick="addData"
+                android:text="Save"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

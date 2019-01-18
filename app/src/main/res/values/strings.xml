@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">InvasivePlantCounter</string>
+
+    <string-array name="Distributioncode">
+        <item>Distribution Code</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="DestinyCode">
+        <item>Density Code</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Dense</item>
+    </string-array>
+
+
+    <string-array name="plant">
+        <item>Plant</item>
+        <item>Ageratina Riparia</item>
+        <item>Aristea Ecklonii</item>
+        <item>Ulex Europeus</item>
+    </string-array>
+
+    <string-array name="location">
+        <item>Hortain Plains</item>
+        <item>Udawalawa NP</item>
+        <item>Wilpaththu</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+</resources>

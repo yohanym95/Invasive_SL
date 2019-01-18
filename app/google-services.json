@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "377111255338",
+    "firebase_url": "https://invasiveplantcounter.firebaseio.com",
+    "project_id": "invasiveplantcounter",
+    "storage_bucket": "invasiveplantcounter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377111255338:android:292f2d4283bffd8e",
+        "android_client_info": {
+          "package_name": "com.example.yohan.invasiveplantcounter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377111255338-0lms2jlp804d1d5m10h092h9a6i7117o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yohan.invasiveplantcounter",
+            "certificate_hash": "c8ecebae5146180543311a2191d105a80eda9509"
+          }
+        },
+        {
+          "client_id": "377111255338-6ld6pidhhb871q40oa78njcsqjak6o8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARphbxI71k5RdMBQSorLYvDpAwunfvtNw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377111255338-6ld6pidhhb871q40oa78njcsqjak6o8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
