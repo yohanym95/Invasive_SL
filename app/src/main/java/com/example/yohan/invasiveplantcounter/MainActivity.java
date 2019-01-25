@@ -21,9 +21,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,6 +37,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,6 +47,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -108,6 +113,13 @@ public class MainActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         photo = findViewById(R.id.ivphoto);
 
+        ActionBar actionBar = getSupportActionBar();
+       // actionBar.setIcon(R.drawable.landscape);
+        actionBar.setTitle("Data Collection");
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+
+
 
         mAUTH = FirebaseAuth.getInstance();
 
@@ -115,14 +127,10 @@ public class MainActivity extends AppCompatActivity {
         String id = user.getUid();
 
         mDatabase = FirebaseDatabase.getInstance().getReference(""+id);
-       mDatabase.keepSynced(true);
-
-
+        mDatabase.keepSynced(true);
 
 
         initList();
-
-
 
 
 //custom spinner
@@ -278,7 +286,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Remark
 
-        String Remark =  remark.getText().toString();
+        //String Remark =  remark.getText().toString();
 
         //gpslocaton
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -325,8 +333,45 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private void updateUI() {
+        Toast.makeText(MainActivity.this,"you are logout!",Toast.LENGTH_LONG).show();
+        Intent i = new Intent(MainActivity.this,Login.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
+        finish();
+    }
 
- /*   @Override
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main1,menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.homepage:
+                finish();
+                Intent i =new Intent(MainActivity.this,HomePage.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+                break;
+            case R.id.Signout:
+                FirebaseAuth.getInstance().signOut();
+                LoginManager.getInstance().logOut();
+                updateUI();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    /*   @Override
    protected void onStart() {
         super.onStart();
         if(mAUTH.getCurrentUser() != null){
@@ -346,14 +391,15 @@ public class MainActivity extends AppCompatActivity {
                     configureButton();
                 return;
 
+            case 0 :
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    captureImage();
+                }
+
 
         }
-        if (requestCode == 0) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
-                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                captureImage();
-            }
-        }
+
     }
 
 
@@ -361,7 +407,7 @@ public class MainActivity extends AppCompatActivity {
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                locationManager.requestLocationUpdates("gps", 3000, 0, locationListener);
+                locationManager.requestLocationUpdates("gps", 2000, 0, locationListener);
 
             }
         });
@@ -498,7 +544,8 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(context,message,Toast.LENGTH_LONG).show();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
+  //  @RequiresApi(api = Build.VERSION_CODES.O)
     public void addData(View v){
        // longitude.setHint("");
         String plantName = clicked.getPlant_Name();
@@ -509,15 +556,18 @@ public class MainActivity extends AppCompatActivity {
         String density = densityCode.getText().toString().trim();
         String remark1 =  remark.getText().toString();
 
-      /*  LocalDateTime t = LocalDateTime.now();
-        LocalDate date = LocalDate.now();
-        DayOfWeek day = date.getDayOfWeek();
-        String datetime = day+", "+t; */
-      String datetime = "02.02.2019";
-
-
+      //  LocalDateTime t = null;
+       // String currentDateTimeString = DateFormat.getD
+       // String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        String  datetime = DateFormat.getDateTimeInstance()
+               .format(new Date());
+     // String datetime = "02.02.2019";
         try {
             if(latitude1.length() != 0 && longitude1.length() != 0 && distribution1.length() != 0 && density.length() !=0){
+                latitude.setError(null);
+                longitude.setError(null);
+                distributionCode.setError(null);
+                densityCode.setError(null);
                 PlantDB db = new PlantDB(this);
                 db.open();
                 db.addData(plantName,location,latitude1,longitude1,datetime,distribution1,density,remark1);
@@ -537,7 +587,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
 
-                            Toast.makeText(MainActivity.this,"Successfully saved!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"Successfully saved In Cloud!",Toast.LENGTH_SHORT).show();
                         }else {
                             Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
 
@@ -545,6 +595,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+
                 Toast.makeText(MainActivity.this,"Successfully saved!",Toast.LENGTH_SHORT).show();
 
                 longitude.setText("");
@@ -588,10 +639,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-
         }catch (Exception e){
             Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
 
     }
+
+
 }
