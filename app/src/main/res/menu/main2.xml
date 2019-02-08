@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/homepage"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="Home Page"
+        android:icon="@drawable/ic_home_black_white"
+        />
+
+    <item android:id="@+id/Signout"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="Sign Out"
+        android:icon="@drawable/ic_arrow_back_black_24dp"
+        />
+
+    <item android:id="@+id/mapSatalite"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="Satellite View"
+        />
+
+    <item android:id="@+id/mapHybrid"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="Hybrid View"
+        />
+
+    <item android:id="@+id/mapNormal"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="Normal View"
+        />
+
+</menu>

@@ -41,6 +41,7 @@ public class ListFrag extends ListFragment {
         activity = (getItem) context;
         db = new PlantDB(context);
 
+
     }
 
     @Override

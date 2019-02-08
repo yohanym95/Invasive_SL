@@ -51,6 +51,10 @@ public class HomePage extends AppCompatActivity {
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+                Intent i = new Intent(HomePage.this,MapsActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
 
             }
         });

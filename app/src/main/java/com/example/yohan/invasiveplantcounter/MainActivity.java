@@ -299,17 +299,14 @@ public class MainActivity extends AppCompatActivity {
                 longitude.setText(""+location.getLongitude());
                 latitude.setText(""+location.getLatitude());
             }
-
-            @Override
+             @Override
             public void onStatusChanged(String provider, int status, Bundle extras) {
 
             }
-
             @Override
             public void onProviderEnabled(String provider) {
 
             }
-
             @Override
             public void onProviderDisabled(String provider) {
 
@@ -329,8 +326,6 @@ public class MainActivity extends AppCompatActivity {
         }else{
             configureButton();
         }
-
-
 
     }
     private void updateUI() {
@@ -363,6 +358,15 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 LoginManager.getInstance().logOut();
                 updateUI();
+                break;
+            case R.id.refresh:
+                mAUTH = FirebaseAuth.getInstance();
+
+                FirebaseUser user = mAUTH.getCurrentUser();
+                String id = user.getUid();
+                mDatabase = FirebaseDatabase.getInstance().getReference(""+id);
+                mDatabase.keepSynced(true);
+                Toast.makeText(MainActivity.this,"Successfully saved In Cloud!",Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -551,7 +555,9 @@ public class MainActivity extends AppCompatActivity {
         String plantName = clicked.getPlant_Name();
         String location = spLocation.getSelectedItem().toString();
         String longitude1 = longitude.getText().toString().trim();
+        double longti1 = Double.parseDouble(longitude.getText().toString().trim());
         String latitude1 =  latitude.getText().toString().trim();
+        double lati1 = Double.parseDouble(latitude.getText().toString().trim());
         String distribution1 = distributionCode.getText().toString().trim();
         String density = densityCode.getText().toString().trim();
         String remark1 =  remark.getText().toString();
@@ -573,16 +579,19 @@ public class MainActivity extends AppCompatActivity {
                 db.addData(plantName,location,latitude1,longitude1,datetime,distribution1,density,remark1);
                 db.close();
 
-                HashMap<String,String> dataMap = new HashMap<>();
+               /* HashMap<String,String> dataMap = new HashMap<>();
                 dataMap.put("Plant Name",plantName);
                 dataMap.put("Location", location);
                 dataMap.put("Longitude",longitude1);
                 dataMap.put("Latitude",latitude1);
                 dataMap.put("Distribution Code",distribution1);
                 dataMap.put("Density Code",density);
-                dataMap.put("Remark",remark1);
+                dataMap.put("Remark",remark1); */
 
-                mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                Datadetails datadetails = new Datadetails(plantName,location,lati1,longti1,distribution1,density,remark1,datetime);
+
+
+                mDatabase.push().setValue(datadetails).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
