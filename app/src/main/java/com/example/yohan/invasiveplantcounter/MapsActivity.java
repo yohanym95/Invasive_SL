@@ -63,6 +63,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mfirebase = FirebaseDatabase.getInstance().getReference("" + id);
         mfirebase.push().setValue(marker);
+        mfirebase.keepSynced(true);
     }
 
     @Override
