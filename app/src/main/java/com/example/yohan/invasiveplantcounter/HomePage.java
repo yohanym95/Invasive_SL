@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomePage extends AppCompatActivity {
 
 
-    TextView data,map,storgae,help,about,contact;
+    TextView data,map,storgae,help;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +28,7 @@ public class HomePage extends AppCompatActivity {
         map = findViewById(R.id.map);
         storgae = findViewById(R.id.storage);
         help = findViewById(R.id.InvasiveHelp);
-        about = findViewById(R.id.About);
-        contact = findViewById(R.id.contact);
+
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Invasive SL");
@@ -76,24 +75,12 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
-
-        contact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
     }
     private void updateUI() {
 
-        Toast.makeText(HomePage.this,"you are logout!",Toast.LENGTH_LONG).show();
+        Toast.makeText(HomePage.this, "you are logout!",Toast.LENGTH_LONG).show();
         Intent i = new Intent(HomePage.this,Login.class);
         startActivity(i);
         finish();

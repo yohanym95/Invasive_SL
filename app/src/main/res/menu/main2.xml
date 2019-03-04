@@ -9,12 +9,6 @@
         android:icon="@drawable/ic_home_black_white"
         />
 
-    <item android:id="@+id/Signout"
-        android:orderInCategory="100"
-        app:showAsAction="always"
-        android:title="Sign Out"
-        android:icon="@drawable/ic_arrow_back_black_24dp"
-        />
 
     <item android:id="@+id/mapSatalite"
         android:orderInCategory="101"

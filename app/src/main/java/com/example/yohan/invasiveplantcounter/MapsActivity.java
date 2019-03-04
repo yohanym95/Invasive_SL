@@ -104,11 +104,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 break;
-            case R.id.Signout:
-                FirebaseAuth.getInstance().signOut();
-                LoginManager.getInstance().logOut();
-                updateUI();
-                break;
+
             case R.id.mapSatalite:
                 mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
                 break;

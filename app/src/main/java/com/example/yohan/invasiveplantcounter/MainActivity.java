@@ -60,7 +60,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
     Spinner plant,distribution,density,spLocation;
     Button save,one,two,three,four,five,six,seven,eight,nine,ten,low,medium,high,dense;
-    ImageView location,photo;
+    ImageView location,photo,sync;
     private ArrayList<plant_item> plantList;
     private plantAdapter mAdapter;
     EditText longitude,latitude,remark;
@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        nine.setOnClickListener(new View.OnClickListener() {
+        ten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 distributionCode.setText("10");
@@ -354,20 +354,7 @@ public class MainActivity extends AppCompatActivity {
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 break;
-            case R.id.Signout:
-                FirebaseAuth.getInstance().signOut();
-                LoginManager.getInstance().logOut();
-                updateUI();
-                break;
-            case R.id.refresh:
-                mAUTH = FirebaseAuth.getInstance();
 
-                FirebaseUser user = mAUTH.getCurrentUser();
-                String id = user.getUid();
-                mDatabase = FirebaseDatabase.getInstance().getReference(""+id);
-                mDatabase.keepSynced(true);
-                Toast.makeText(MainActivity.this,"Successfully saved In Cloud!",Toast.LENGTH_SHORT).show();
-                break;
         }
 
         return super.onOptionsItemSelected(item);
