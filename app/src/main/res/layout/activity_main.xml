@@ -10,59 +10,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/com_facebook_button_login_silver_background_color_pressed"
         android:orientation="horizontal">
 
-        <!--<LinearLayout
-            android:layout_width="93dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/IdLocation"
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:layout_marginTop="30dp"
-                android:text="Location"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/plant"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_marginTop="50dp"
-                android:text="Plant"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/distribution"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="Ditribution Code"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="Density Code"
-                android:textColor="@android:color/background_dark"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-        </LinearLayout> -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="8dp"
+            android:background="@color/com_facebook_button_login_silver_background_color_pressed"
             android:orientation="vertical">
 
             <TextView
@@ -75,6 +33,7 @@
 
             <Spinner
                 android:id="@+id/spLocation"
+                style="?attr/spinnerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -98,39 +57,52 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
 
-                <EditText
-                    android:id="@+id/editText"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="3"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="Longitude"
-                    android:inputType="textPersonName"
-                    android:textColorHint="@android:color/black"
-                    android:textColorLink="@android:color/background_dark" />
+                    android:layout_weight="6"
+                    android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/editText2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="3"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="Latitude"
-                    android:inputType="textPersonName"
-                    android:textColor="@android:color/background_dark"
-                    android:textColorHint="@android:color/background_dark" />
+                    <TextView
+                        android:id="@+id/editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="3"
+                        android:background="@android:color/background_light"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="Longitude"
+                        android:inputType="textPersonName"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/editText2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="3"
+                        android:background="@android:color/background_light"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="Latitude"
+                        android:inputType="textPersonName"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
 
                 <ImageView
                     android:id="@+id/location"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginRight="3dp"
                     android:layout_weight="1"
                     android:background="@android:color/darker_gray"
                     android:clickable="true"
@@ -186,7 +158,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp">
+                android:layout_marginRight="8dp"
+                android:background="@android:color/background_light">
 
 
                 <Button
@@ -348,13 +321,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
                 android:layout_marginRight="6dp"
-                >
+                android:background="@android:color/background_light">
 
                 <Button
                     android:id="@+id/den1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="2dp"
                     android:layout_marginRight="5dp"
                     android:background="@android:color/holo_green_light"
                     android:text="Low"
@@ -397,7 +370,7 @@
                     android:id="@+id/den4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="2dp"
                     android:background="@android:color/holo_green_light"
                     android:text="Dense"
                     android:textSize="12sp"
@@ -447,6 +420,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="3"
+                    android:background="@android:color/background_light"
                     android:ems="10"
                     android:gravity="center"
                     android:hint="Enter Remark"
@@ -471,8 +445,6 @@
 
 
         </LinearLayout>
-
-
 
 
     </LinearLayout>

@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView location,photo,sync;
     private ArrayList<plant_item> plantList;
     private plantAdapter mAdapter;
-    EditText longitude,latitude,remark;
+    EditText remark;
     private LocationManager locationManager;
     private LocationListener locationListener;
-    TextView distributionCode,densityCode;
+    TextView distributionCode,densityCode,longitude,latitude;
     plant_item clicked;
     FloatingActionButton fab;
 
