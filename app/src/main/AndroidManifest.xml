@@ -23,7 +23,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ImageSlider"></activity>
         <!--
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -54,7 +54,7 @@
 
         <activity android:name=".Storage" />
         <activity android:name=".HomePage" />
-        <activity android:name=".signup"></activity>
+        <activity android:name=".signup" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -76,7 +76,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -91,7 +90,7 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
     </application>
 
 </manifest>

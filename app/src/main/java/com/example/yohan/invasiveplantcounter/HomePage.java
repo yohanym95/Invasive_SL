@@ -122,6 +122,10 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                finish();
+                Intent i = new Intent(HomePage.this,ImageSlider.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
 

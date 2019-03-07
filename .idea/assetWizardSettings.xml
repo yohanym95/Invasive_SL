@@ -13,6 +13,33 @@
                       <PersistentState>
                         <option name="children">
                           <map>
+                            <entry key="actionbar">
+                              <value>
+                                <PersistentState>
+                                  <option name="children">
+                                    <map>
+                                      <entry key="clipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="color" value="000000" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                    </map>
+                                  </option>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="theme" value="HOLO_DARK" />
+                                      <entry key="themeColor" value="ffffff" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
                             <entry key="launcher">
                               <value>
                                 <PersistentState>
@@ -23,7 +50,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="19" />
+                                                <entry key="scalingPercent" value="159" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -35,7 +62,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="164" />
+                                                <entry key="scalingPercent" value="124" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -45,13 +72,55 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundImage" value="C:\Users\yohan\Downloads\Image from iOS.jpg" />
-                                      <entry key="backgroundLayerName" value="uu_uu" />
-                                      <entry key="foregroundImage" value="C:\Users\yohan\Downloads\Image from iOS.jpg" />
-                                      <entry key="foregroundLayerName" value="uu_u" />
+                                      <entry key="backgroundImage" value="C:\Users\yohan\Downloads\ulex1.jpg" />
+                                      <entry key="backgroundLayerName" value="ulex1_" />
+                                      <entry key="foregroundImage" value="C:\Users\yohan\Downloads\ulex1.jpg" />
+                                      <entry key="foregroundLayerName" value="ulex1_1" />
                                       <entry key="legacyIconShape" value="NONE" />
-                                      <entry key="outputName" value="uu" />
+                                      <entry key="outputName" value="ulex1" />
                                       <entry key="webIconShape" value="NONE" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                            <entry key="launcherLegacy">
+                              <value>
+                                <PersistentState>
+                                  <option name="children">
+                                    <map>
+                                      <entry key="clipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="color" value="000000" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                            <entry key="notification">
+                              <value>
+                                <PersistentState>
+                                  <option name="children">
+                                    <map>
+                                      <entry key="clipArt">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="color" value="000000" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -82,7 +151,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/editor/ic_insert_chart_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/places/ic_ac_unit_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -92,8 +161,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="88d41d" />
-                            <entry key="outputName" value="ic_insert_chart_black_24dp" />
+                            <entry key="outputName" value="ic_ac_unit_black_24dp" />
                             <entry key="sourceFile" value="C:\Users\yohan" />
                           </map>
                         </option>
