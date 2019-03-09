@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item android:id="@+id/homepage"
         android:orderInCategory="100"
         app:showAsAction="always"
@@ -9,12 +10,7 @@
         android:icon="@drawable/ic_home_black_white"
         />
 
-    <item android:id="@+id/Signout"
-        android:orderInCategory="100"
-        app:showAsAction="always"
-        android:title="Sign Out"
-        android:icon="@drawable/ic_arrow_back_black_24dp"
-        />
+
 
 
 </menu>

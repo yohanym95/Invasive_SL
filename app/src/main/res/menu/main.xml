@@ -6,7 +6,7 @@
         android:orderInCategory="100"
         app:showAsAction="always"
         android:title="Sign Out"
-        android:icon="@drawable/ic_arrow_back_black_24dp"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
         />
 
 </menu>

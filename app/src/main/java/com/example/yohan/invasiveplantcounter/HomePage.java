@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomePage extends AppCompatActivity {
 
 
-    TextView data,map,storgae,help,about,contact;
+    TextView data,map,storgae,help;
+    ImageView data1,map1,storgae1,help1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,12 @@ public class HomePage extends AppCompatActivity {
         map = findViewById(R.id.map);
         storgae = findViewById(R.id.storage);
         help = findViewById(R.id.InvasiveHelp);
-        about = findViewById(R.id.About);
-        contact = findViewById(R.id.contact);
+
+        data1 = findViewById(R.id.imageView4);
+        map1 = findViewById(R.id.imageView5);
+        storgae1 = findViewById(R.id.imageView6);
+        help1 = findViewById(R.id.imageView7);
+
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Invasive SL");
@@ -51,6 +57,10 @@ public class HomePage extends AppCompatActivity {
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+                Intent i = new Intent(HomePage.this,MapsActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
 
             }
         });
@@ -72,24 +82,58 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-        about.setOnClickListener(new View.OnClickListener() {
+
+
+        data1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                finish();
+                Intent i = new Intent(HomePage.this,MainActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
 
             }
         });
 
-        contact.setOnClickListener(new View.OnClickListener() {
+        map1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+                Intent i = new Intent(HomePage.this,MapsActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
 
             }
         });
+
+        storgae1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent i = new Intent(HomePage.this,Storage.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+
+            }
+        });
+
+        help1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+                Intent i = new Intent(HomePage.this,ImageSlider.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+            }
+        });
+
 
     }
     private void updateUI() {
 
-        Toast.makeText(HomePage.this,"you are logout!",Toast.LENGTH_LONG).show();
+        Toast.makeText(HomePage.this, "you are logout!",Toast.LENGTH_LONG).show();
         Intent i = new Intent(HomePage.this,Login.class);
         startActivity(i);
         finish();

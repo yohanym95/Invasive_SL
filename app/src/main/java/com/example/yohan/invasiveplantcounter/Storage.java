@@ -100,11 +100,7 @@ public class Storage extends AppCompatActivity implements ListFrag.getItem {
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 break;
-            case R.id.Signout:
-                FirebaseAuth.getInstance().signOut();
-                LoginManager.getInstance().logOut();
-                updateUI();
-                break;
+
         }
 
         return super.onOptionsItemSelected(item);
