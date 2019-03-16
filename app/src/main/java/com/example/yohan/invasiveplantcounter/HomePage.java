@@ -1,9 +1,11 @@
 package com.example.yohan.invasiveplantcounter;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.login.LoginManager;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class HomePage extends AppCompatActivity {
@@ -21,6 +25,8 @@ public class HomePage extends AppCompatActivity {
     TextView data,map,storgae,help;
     ImageView data1,map1,storgae1,help1;
 
+    private static final String TAG = "HomePage";
+    private static final int ERROR_DIALOG_REQUEST =9001;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,35 +48,30 @@ public class HomePage extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayUseLogoEnabled(true);
 
+        if(isServiceOk()){
+            init();
+        }
+
         data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                finish();
+               // finish();
                 Intent i = new Intent(HomePage.this,MainActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+              //  i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
 
             }
         });
 
-        map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                Intent i = new Intent(HomePage.this,MapsActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
 
-            }
-        });
 
         storgae.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+              //  finish();
                 Intent i = new Intent(HomePage.this,Storage.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+              //  i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
 
             }
@@ -79,7 +80,10 @@ public class HomePage extends AppCompatActivity {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+               // finish();
+                Intent i = new Intent(HomePage.this,ImageSlider.class);
+                //   i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
             }
         });
 
@@ -88,31 +92,22 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                finish();
+               // finish();
                 Intent i = new Intent(HomePage.this,MainActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+              //  i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
 
             }
         });
 
-        map1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                Intent i = new Intent(HomePage.this,MapsActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
 
-            }
-        });
 
         storgae1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+              //  finish();
                 Intent i = new Intent(HomePage.this,Storage.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+             //   i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
 
             }
@@ -122,14 +117,65 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                finish();
+              //  finish();
                 Intent i = new Intent(HomePage.this,ImageSlider.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+             //   i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
         });
 
 
+        
+        
+
+
+    }
+
+
+    private void init(){
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //  finish();
+                Intent i = new Intent(HomePage.this,MapsActivity.class);
+                // i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+
+            }
+        });
+
+        map1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // finish();
+                Intent i = new Intent(HomePage.this,MapsActivity.class);
+                //  i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(i);
+
+            }
+        });
+
+    }
+
+    public boolean isServiceOk(){
+        Log.d(TAG,"isServicesOK: Checking google services version");
+
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(HomePage.this);
+
+        if(available == ConnectionResult.SUCCESS){
+            Log.d(TAG,"isServiceOK: Google play service is working");
+            return  true;
+        }else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
+           Log.d(TAG,"isServicesOK: an Error Occured but we can fix it");
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(HomePage.this,available,ERROR_DIALOG_REQUEST);
+            dialog.show();
+
+        }else{
+            Toast.makeText(HomePage.this,"You Can't make map Request",Toast.LENGTH_LONG).show();
+
+        }
+
+        return false;
     }
     private void updateUI() {
 

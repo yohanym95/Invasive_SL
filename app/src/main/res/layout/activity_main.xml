@@ -103,15 +103,15 @@
                 </LinearLayout>
 
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/location"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginRight="3dp"
                     android:layout_weight="1"
-                    android:background="@android:color/darker_gray"
+
                     android:clickable="true"
                     app:srcCompat="@drawable/location_searching" />
 

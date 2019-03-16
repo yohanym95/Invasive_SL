@@ -32,6 +32,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -58,26 +59,26 @@ import java.util.HashMap;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    Spinner plant,distribution,density,spLocation;
-    Button save,one,two,three,four,five,six,seven,eight,nine,ten,low,medium,high,dense;
-    ImageView location,photo,sync;
+    Spinner plant, distribution, density, spLocation;
+    Button save, one, two, three, four, five, six, seven, eight, nine, ten, low, medium, high, dense;
+    ImageView  photo, sync;
+    ImageButton location;
     private ArrayList<plant_item> plantList;
     private plantAdapter mAdapter;
     EditText remark;
     private LocationManager locationManager;
     private LocationListener locationListener;
-    TextView distributionCode,densityCode,longitude,latitude;
+    TextView distributionCode, densityCode, longitude, latitude;
     plant_item clicked;
     FloatingActionButton fab;
 
     public static final int Request_no = 1;
     // private String mImageFileLocation ="";
-    File photoFile =null;
-    private static final String Image_Directory_name ="InavasivePlantCounter";
+    File photoFile = null;
+    private static final String Image_Directory_name = "InavasivePlantCounter";
     String mCurrentPhotoPath;
     private FirebaseAuth mAUTH;
     private DatabaseReference mDatabase;
-
 
 
     @Override
@@ -90,10 +91,10 @@ public class MainActivity extends AppCompatActivity {
         density = findViewById(R.id.Density_Sp);*/
         save = findViewById(R.id.save);
         location = findViewById(R.id.location);
-        longitude= findViewById(R.id.editText);
-        latitude= findViewById(R.id.editText2);
+        longitude = findViewById(R.id.editText);
+        latitude = findViewById(R.id.editText2);
         one = findViewById(R.id.one);
-        two= findViewById(R.id.two);
+        two = findViewById(R.id.two);
         three = findViewById(R.id.three);
         four = findViewById(R.id.four);
         five = findViewById(R.id.five);
@@ -107,18 +108,17 @@ public class MainActivity extends AppCompatActivity {
         low = findViewById(R.id.den1);
         medium = findViewById(R.id.den2);
         high = findViewById(R.id.den3);
-        dense= findViewById(R.id.den4);
+        dense = findViewById(R.id.den4);
         remark = findViewById(R.id.remark);
         spLocation = findViewById(R.id.spLocation);
         fab = findViewById(R.id.fab);
         photo = findViewById(R.id.ivphoto);
 
         ActionBar actionBar = getSupportActionBar();
-       // actionBar.setIcon(R.drawable.landscape);
+        // actionBar.setIcon(R.drawable.landscape);
         actionBar.setTitle("Data Collection");
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
-
 
 
         mAUTH = FirebaseAuth.getInstance();
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = mAUTH.getCurrentUser();
         String id = user.getUid();
 
-        mDatabase = FirebaseDatabase.getInstance().getReference(""+id);
+        mDatabase = FirebaseDatabase.getInstance().getReference("" + id);
         mDatabase.keepSynced(true);
 
 
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 //custom spinner
-        mAdapter= new plantAdapter(this,plantList);
+        mAdapter = new plantAdapter(this, plantList);
         plant.setAdapter(mAdapter);
 
         plant.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 clicked = (plant_item) parent.getItemAtPosition(position);
                 //String clikedPlant = clicked.getPlant_Name();
-              //  Toast.makeText(MainActivity.this, clikedPlant+" selected",Toast.LENGTH_SHORT ).show();
+                //  Toast.makeText(MainActivity.this, clikedPlant+" selected",Toast.LENGTH_SHORT ).show();
             }
 
             @Override
@@ -150,14 +150,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-      //  String name = plant.getSelectedItem().toString();
+        //  String name = plant.getSelectedItem().toString();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     captureImage();
-                }else{
+                } else {
                     captureImage2();
                 }
 
@@ -294,19 +294,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onLocationChanged(Location location) {
 
-             //   cordiantes.setText("\n"+location.getLatitude()+" "+location.getLongitude());
+                //   cordiantes.setText("\n"+location.getLatitude()+" "+location.getLongitude());
 
-                longitude.setText(""+location.getLongitude());
-                latitude.setText(""+location.getLatitude());
+                longitude.setText("" + location.getLongitude());
+                latitude.setText("" + location.getLatitude());
             }
-             @Override
+
+            @Override
             public void onStatusChanged(String provider, int status, Bundle extras) {
 
             }
+
             @Override
             public void onProviderEnabled(String provider) {
 
             }
+
             @Override
             public void onProviderDisabled(String provider) {
 
@@ -323,14 +326,16 @@ public class MainActivity extends AppCompatActivity {
 
                 }, 10);
             }
-        }else{
+        } else {
             configureButton();
+           //. locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
         }
 
     }
+
     private void updateUI() {
-        Toast.makeText(MainActivity.this,"you are logout!",Toast.LENGTH_LONG).show();
-        Intent i = new Intent(MainActivity.this,Login.class);
+        Toast.makeText(MainActivity.this, "you are logout!", Toast.LENGTH_LONG).show();
+        Intent i = new Intent(MainActivity.this, Login.class);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         finish();
@@ -339,18 +344,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main1,menu);
+        getMenuInflater().inflate(R.menu.main1, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
+        switch (item.getItemId()) {
             case R.id.homepage:
                 finish();
-                Intent i =new Intent(MainActivity.this,HomePage.class);
+                Intent i = new Intent(MainActivity.this, HomePage.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
                 break;
@@ -376,13 +380,13 @@ public class MainActivity extends AppCompatActivity {
     } */
 
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode ){
-            case 10 :
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        switch (requestCode) {
+            case 10:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     configureButton();
                 return;
 
-            case 0 :
+            case 0:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
                         && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     captureImage();
@@ -398,7 +402,18 @@ public class MainActivity extends AppCompatActivity {
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                locationManager.requestLocationUpdates("gps", 2000, 0, locationListener);
+                if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    Toast.makeText(MainActivity.this,"Permission no granted",Toast.LENGTH_SHORT).show();
+                    return ;
+                }
+                locationManager.requestLocationUpdates("gps", 5000, 5, locationListener);
 
             }
         });
@@ -411,7 +426,6 @@ public class MainActivity extends AppCompatActivity {
     //custom spinner
     private void initList() {
         plantList = new ArrayList<>();
-
         plantList.add(new plant_item("Ageratina Riparia",R.mipmap.aa_a));
         plantList.add(new plant_item("Aristea Ecklonii",R.mipmap.aa_a1));
         plantList.add(new plant_item("Ulex Europaeus",R.mipmap.uu_u));
