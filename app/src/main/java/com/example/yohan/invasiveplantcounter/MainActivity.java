@@ -1,6 +1,7 @@
 package com.example.yohan.invasiveplantcounter;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -60,7 +61,9 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     Spinner plant, distribution, density, spLocation;
-    Button save, one, two, three, four, five, six, seven, eight, nine, ten, low, medium, high, dense;
+    Button save;
+    ImageButton one, two, three, four, five, six, seven, eight, nine;
+    Button low, medium, high, dense;
     ImageView  photo, sync;
     ImageButton location;
     private ArrayList<plant_item> plantList;
@@ -79,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
     String mCurrentPhotoPath;
     private FirebaseAuth mAUTH;
     private DatabaseReference mDatabase;
+    ImageView customImage,distributionHelp;
+    Button customButton,customButton1;
+
+    Dialog MyDialog,MyDialog1;
 
 
     @Override
@@ -102,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         seven = findViewById(R.id.seven);
         eight = findViewById(R.id.eight);
         nine = findViewById(R.id.nine);
-        ten = findViewById(R.id.ten);
+        //ten = findViewById(R.id.ten);
         distributionCode = findViewById(R.id.DistributionCode);
         densityCode = findViewById(R.id.DenistyCode);
         low = findViewById(R.id.den1);
@@ -113,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         spLocation = findViewById(R.id.spLocation);
         fab = findViewById(R.id.fab);
         photo = findViewById(R.id.ivphoto);
+        distributionHelp = findViewById(R.id.distributioncodehelp);
 
         ActionBar actionBar = getSupportActionBar();
         // actionBar.setIcon(R.drawable.landscape);
@@ -174,11 +182,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        one.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                customMyDialog(R.mipmap.frontcode1,"1");
+                return true;
+            }
+        });
+
+
+
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 distributionCode.setText("2");
+            }
+        });
+
+        two.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                customMyDialog(R.mipmap.frontcode2,"2");
+                return true;
             }
         });
 
@@ -188,12 +214,26 @@ public class MainActivity extends AppCompatActivity {
                 distributionCode.setText("3");
             }
         });
+        three.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                customMyDialog(R.mipmap.frontcode3,"3");
+                return true;
+            }
+        });
 
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 distributionCode.setText("4");
 
+            }
+        });
+        four.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                customMyDialog(R.mipmap.frontcode4,"4");
+                return true;
             }
         });
 
@@ -205,11 +245,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        five.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                customMyDialog(R.mipmap.frontcode5,"5");
+                return true;
+            }
+        });
+
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 distributionCode.setText("6");
 
+            }
+        });
+        six.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                customMyDialog(R.mipmap.frontcode6,"6");
+                return true;
             }
         });
 
@@ -220,12 +275,26 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        seven.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                customMyDialog(R.mipmap.frontcode7,"7");
+                return true;
+            }
+        });
 
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 distributionCode.setText("8");
 
+            }
+        });
+        eight.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                customMyDialog(R.mipmap.frontcode8,"8");
+                return true;
             }
         });
 
@@ -236,14 +305,22 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-        ten.setOnClickListener(new View.OnClickListener() {
+        nine.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
-                distributionCode.setText("10");
-
+            public boolean onLongClick(View v) {
+                customMyDialog(R.mipmap.frontcode9,"9");
+                return true;
             }
         });
+
+        distributionHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               customMyDialog1();
+            }
+        });
+
+
 
         String distributioncode = distributionCode.getText().toString();
 
@@ -652,6 +729,50 @@ public class MainActivity extends AppCompatActivity {
         }catch (Exception e){
             Toast.makeText(MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
+
+    }
+
+    public void customMyDialog(int i, final String ss){
+        MyDialog = new Dialog(MainActivity.this);
+        MyDialog.setContentView(R.layout.customdialog);
+        MyDialog.setTitle("Distribution Code");
+        MyDialog.show();
+
+        customButton = MyDialog.findViewById(R.id.customdialogButton);
+
+        customButton.setEnabled(true);
+        customButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                distributionCode.setText(ss);
+                MyDialog.dismiss();
+            }
+        });
+
+        customImage = MyDialog.findViewById(R.id.customdialogImage);
+
+        customImage.setImageResource(i);
+
+
+
+    }
+
+    public void customMyDialog1(){
+        MyDialog1 = new Dialog(MainActivity.this);
+        MyDialog1.setContentView(R.layout.customdialog1);
+        MyDialog1.setTitle("Help");
+        MyDialog1.show();
+
+        customButton1 = MyDialog1.findViewById(R.id.distributionhelpButton);
+
+        customButton1.setEnabled(true);
+        customButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyDialog1.dismiss();
+            }
+        });
 
     }
 

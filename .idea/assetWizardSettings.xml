@@ -50,7 +50,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="159" />
+                                                <entry key="scalingPercent" value="102" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -62,7 +62,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="124" />
+                                                <entry key="scalingPercent" value="99" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -72,12 +72,12 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundImage" value="C:\Users\yohan\Downloads\ulex1.jpg" />
-                                      <entry key="backgroundLayerName" value="ulex1_" />
-                                      <entry key="foregroundImage" value="C:\Users\yohan\Downloads\ulex1.jpg" />
-                                      <entry key="foregroundLayerName" value="ulex1_1" />
+                                      <entry key="backgroundImage" value="C:\Users\yohan\Desktop\New folder (3)\Invasive Plant 9.jpg" />
+                                      <entry key="backgroundLayerName" value="backcode9" />
+                                      <entry key="foregroundImage" value="C:\Users\yohan\Desktop\New folder (3)\Invasive Plant 9.jpg" />
+                                      <entry key="foregroundLayerName" value="frontcode9" />
                                       <entry key="legacyIconShape" value="NONE" />
-                                      <entry key="outputName" value="ulex1" />
+                                      <entry key="outputName" value="code9" />
                                       <entry key="webIconShape" value="NONE" />
                                     </map>
                                   </option>
